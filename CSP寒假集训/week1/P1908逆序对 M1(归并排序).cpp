@@ -3,7 +3,7 @@
 using namespace std;
 int a[500005],c[500005],n;
 long long ans=0;
-void msort(int l,int r)
+void msort(int l,int r)//核心代码（归并排序）
 {
 	if(l==r) return;
 	int mid=(l+r)/2;
@@ -35,3 +35,4 @@ int main()
 	msort(1,n);
 	cout<<ans;
 }
+
