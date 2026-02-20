@@ -12,6 +12,7 @@ struct TeamStatu{
 		acs=0;
 		memset(is_prob_ac,false,sizeof(is_prob_ac));
 		memset(fail_time,0,sizeof(fail_time));
+		memset(problem_time,0,sizeof(problem_time));
 		first_sub=1000000000;
 	}
 	int times;
@@ -45,7 +46,7 @@ int main()
 		char p_name;
 		cin>>h>>ch>>m>>ch>>s>>p_name>>t_name;
 		getline(cin,statu);
-		if(h<4)
+		if(h<4||(h==4&&m==0&&s==0))
 		{
 			if(teams1.count(t_name)==0)
 			{
@@ -124,12 +125,13 @@ int main()
 				ranks[now].times+=teams2[name].problem_time[i];
 				teams1[name].is_prob_ac[i]=true;
 				ok=0;
-				sort(ranks.begin()+1,ranks.begin()+teams1.size()+1,cmp);
+				sort(ranks.begin()+1,ranks.begin()+teams1.size()+1,cmp);	
 				break;
 			}
 		}
 		if(ok) now++;
 	}
+	
 }
 //4 4 15
 //0:00:01 A dabc Wrong Answer
